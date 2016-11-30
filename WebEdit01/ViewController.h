@@ -19,6 +19,8 @@
 @property (weak) IBOutlet NSScrollView *textScroll;
 @property (unsafe_unretained) IBOutlet NSTextView *sTextView;
 @property (weak) IBOutlet WebView *webView;
+@property (weak) IBOutlet NSTableView *tableView;
+
 
 @end
 

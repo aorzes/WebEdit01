@@ -13,21 +13,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    htmTags =@[@"<html>\n<style>\n</style>\n<body>\n</body>\n</html>",
+    NSString *beginString =@"<html>\n<style>\ndiv{\nborder:solid 1px #cccccc;\nbackground-color:white;\nborder-radius:5px;\nbox-shadow: 10px 10px 15px #888888;\npadding:10;}\n</style>\n<body>\n<img src= \nwidth=100%>\n<center>\n<table width=50%>\n<tr><td><div>\na\n</div></td></tr>\n\n</table></center>\n</body>\n</html>";
+    htmTags =@[beginString,
                @"color:red;",
-               @"bacground-color:orange;",
+               @"background-color:orange;",
                @"border-radius:10px;",
                @"border:solid 1px;",
                @"box-shadow: 10px 10px 5px #888888;"];
     htmName =@[@"HTML",
                @"Font color",
-               @"Bacground color",
+               @"Background color",
                @"Radius",
                @"Border",
                @"Shadow"];
     [_sTextView setFont:[NSFont fontWithName:@"Menlo" size:14]];
+    [self.tableView setDoubleAction:@selector(clickDouble)];
     
+}
+
+- (void)clickDouble{
+    NSRange range = _sTextView.rangeForUserTextChange;
+    [_sTextView insertText:[htmTags objectAtIndex:_tableView.selectedRow] replacementRange:range];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -98,7 +104,8 @@
 
 - (IBAction)insertDivStyle:(id)sender {
     NSRange range = _sTextView.rangeForUserTextChange;
-    [_sTextView insertText:[htmTags objectAtIndex:1] replacementRange:range];
+    NSString *newString =@"<tr><td><div>\na\n</div></td></tr>\n";
+    [_sTextView insertText:newString replacementRange:range];
 }
 
 - (IBAction)insertBegins:(id)sender {
@@ -110,11 +117,7 @@
    viewForTableColumn:(NSTableColumn *)tableColumn
                   row:(NSInteger)row {
     
-    // Retrieve to get the @"MyView" from the pool or,
-    // if no version is available in the pool, load the Interface Builder version
     NSTableCellView *result = [tableView makeViewWithIdentifier:@"MyCell" owner:self];
-    
-    // Set the stringValue of the cell's text field to the nameArray value at row
     result.textField.stringValue = [htmName objectAtIndex:row];
     
     // Return the result
