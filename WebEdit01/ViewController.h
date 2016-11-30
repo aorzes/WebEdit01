@@ -7,9 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
-@interface ViewController : NSViewController
-
+@interface ViewController : NSViewController<NSBrowserDelegate>
+{
+    NSURL*  path;
+    NSString *pathString;
+    NSArray *htmTags;
+    NSArray *htmName;
+}
+@property (weak) IBOutlet NSScrollView *textScroll;
+@property (unsafe_unretained) IBOutlet NSTextView *sTextView;
+@property (weak) IBOutlet WebView *webView;
 
 @end
 
