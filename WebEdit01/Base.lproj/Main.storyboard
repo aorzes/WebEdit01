@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <plugIn identifier="com.apple.WebKitIBPlugin" version="11542"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -839,55 +840,67 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-0u-mEG">
-                                <rect key="frame" x="187" y="6" width="138" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="5HU-9Y-htD"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="From text" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="giA-7S-0zn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <connections>
-                                        <action selector="ucitajFromText:" target="XfG-lQ-9wD" id="N2f-nh-pjl"/>
-                                    </connections>
-                                </buttonCell>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hxj-YN-PWY">
-                                <rect key="frame" x="463" y="6" width="117" height="32"/>
-                                <buttonCell key="cell" type="push" title="Add text box" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AYh-0g-RyF">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="insertDivStyle:" target="XfG-lQ-9wD" id="TPW-Jf-baK"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-wj-yUa">
-                                <rect key="frame" x="325" y="6" width="138" height="32"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="yRl-oT-tOz"/>
-                                </constraints>
-                                <buttonCell key="cell" type="push" title="Refresh from file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SYz-f3-R1l">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="ucitaj:" target="XfG-lQ-9wD" id="kTs-fO-a61"/>
-                                </connections>
-                            </button>
+                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="0K7-ad-98C">
+                                <rect key="frame" x="193" y="0.0" width="701" height="42"/>
+                                <view key="contentView" id="Tw5-gW-pht">
+                                    <rect key="frame" x="1" y="1" width="699" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-0u-mEG">
+                                            <rect key="frame" x="160" y="2" width="144" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="132" id="jeI-yF-S0s"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="push" title="Refresh from text" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="giA-7S-0zn">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <connections>
+                                                    <action selector="ucitajFromText:" target="XfG-lQ-9wD" id="N2f-nh-pjl"/>
+                                                </connections>
+                                            </buttonCell>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Hxj-YN-PWY">
+                                            <rect key="frame" x="14" y="2" width="117" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Add text box" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="AYh-0g-RyF">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="insertDivStyle:" target="XfG-lQ-9wD" id="TPW-Jf-baK"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FlK-SX-Rrr">
+                                            <rect key="frame" x="336" y="2" width="141" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Refresh from file" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="usz-Om-qh0">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="ucitaj:" target="XfG-lQ-9wD" id="KJm-UK-lpH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FlK-SX-Rrr" firstAttribute="baseline" secondItem="yKd-0u-mEG" secondAttribute="baseline" id="0s4-EK-xeW"/>
+                                        <constraint firstItem="yKd-0u-mEG" firstAttribute="baseline" secondItem="Hxj-YN-PWY" secondAttribute="baseline" id="0wW-Ry-rOs"/>
+                                        <constraint firstItem="Hxj-YN-PWY" firstAttribute="leading" secondItem="Tw5-gW-pht" secondAttribute="leading" constant="20" id="NM4-L2-NNS"/>
+                                        <constraint firstItem="FlK-SX-Rrr" firstAttribute="leading" secondItem="yKd-0u-mEG" secondAttribute="trailing" constant="44" id="Qrk-LF-XBW"/>
+                                        <constraint firstItem="yKd-0u-mEG" firstAttribute="leading" secondItem="Hxj-YN-PWY" secondAttribute="trailing" constant="41" id="lFr-no-KVn"/>
+                                        <constraint firstItem="Hxj-YN-PWY" firstAttribute="centerY" secondItem="Tw5-gW-pht" secondAttribute="centerY" id="yOO-Dj-ca8"/>
+                                    </constraints>
+                                </view>
+                            </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="edZ-wj-yUa" firstAttribute="baseline" secondItem="Hxj-YN-PWY" secondAttribute="baseline" id="0Iu-Xj-3Yb"/>
-                            <constraint firstItem="Hxj-YN-PWY" firstAttribute="top" secondItem="4vH-wk-rx0" secondAttribute="bottom" constant="15" id="0og-fV-AQb"/>
-                            <constraint firstItem="yKd-0u-mEG" firstAttribute="baseline" secondItem="Hxj-YN-PWY" secondAttribute="baseline" id="8QR-hn-Ne0"/>
+                            <constraint firstAttribute="trailing" secondItem="0K7-ad-98C" secondAttribute="trailing" constant="20" id="EAE-P9-a2X"/>
+                            <constraint firstItem="0K7-ad-98C" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="193" id="MDn-Ou-WwO"/>
                             <constraint firstItem="aTe-QP-2IM" firstAttribute="bottom" secondItem="dso-sV-2YR" secondAttribute="bottom" id="RIk-pR-jpV"/>
+                            <constraint firstItem="0K7-ad-98C" firstAttribute="top" secondItem="dso-sV-2YR" secondAttribute="bottom" constant="6" id="Vbh-dW-bgC"/>
+                            <constraint firstItem="0K7-ad-98C" firstAttribute="top" secondItem="DPt-mH-ZMH" secondAttribute="bottom" constant="6" id="WCN-tK-Iny"/>
                             <constraint firstItem="dso-sV-2YR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="ZGt-hW-JSb"/>
                             <constraint firstItem="aTe-QP-2IM" firstAttribute="top" secondItem="dso-sV-2YR" secondAttribute="top" id="ZZc-o4-KyM"/>
-                            <constraint firstItem="yKd-0u-mEG" firstAttribute="leading" secondItem="dso-sV-2YR" secondAttribute="leading" id="aQj-Yb-bYR"/>
                             <constraint firstAttribute="trailing" secondItem="dso-sV-2YR" secondAttribute="trailing" constant="20" symbolic="YES" id="egR-UP-i4l"/>
-                            <constraint firstItem="yKd-0u-mEG" firstAttribute="top" secondItem="dso-sV-2YR" secondAttribute="bottom" constant="14" id="iYv-mB-11n"/>
-                            <constraint firstItem="Hxj-YN-PWY" firstAttribute="leading" secondItem="edZ-wj-yUa" secondAttribute="trailing" constant="12" symbolic="YES" id="kI6-dE-ND0"/>
-                            <constraint firstItem="edZ-wj-yUa" firstAttribute="leading" secondItem="yKd-0u-mEG" secondAttribute="trailing" constant="12" symbolic="YES" id="kUs-Vl-isn"/>
+                            <constraint firstAttribute="bottom" secondItem="0K7-ad-98C" secondAttribute="bottom" id="jBy-va-mM4"/>
                             <constraint firstAttribute="bottom" secondItem="dso-sV-2YR" secondAttribute="bottom" constant="48" id="ote-fj-bIb"/>
                             <constraint firstItem="dso-sV-2YR" firstAttribute="leading" secondItem="aTe-QP-2IM" secondAttribute="trailing" constant="15" id="rr9-El-g6f"/>
                             <constraint firstItem="dso-sV-2YR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="193" id="wBK-Xf-Zeu"/>
@@ -903,7 +916,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="995"/>
+            <point key="canvasLocation" x="-12" y="961"/>
         </scene>
     </scenes>
 </document>
