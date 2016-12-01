@@ -19,18 +19,59 @@
                @"background-color:orange;",
                @"border-radius:10px;",
                @"border:solid 1px;",
-               @"box-shadow: 10px 10px 5px #888888;"];
+               @"box-shadow: 10px 10px 5px #888888;",
+               @"<xmp>"];
     htmName =@[@"HTML",
                @"Font color",
                @"Background color",
                @"Radius",
                @"Border",
-               @"Shadow"];
+               @"Shadow",
+               @"Code"];
     [_sTextView setFont:[NSFont fontWithName:@"Menlo" size:14]];
     [self.tableView setDoubleAction:@selector(clickDouble)];
+    _sTextView.delegate = self;
     
 }
 
+//- (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString{
+//    NSLog(@"change3:%ld",affectedCharRange.location);
+//    NSString *selected = [[textView string] substringWithRange:[textView selectedRange]];
+//    
+//    return YES;
+//}
+
+//- (void) textDidChange: (NSNotification *) notification {
+//    NSLog(@"change1");
+//}
+
+//- (void)textViewDidChangeSelection:(NSNotification *)notification{
+//    NSLog(@"change4");
+//}
+
+//- (NSRange)textView:(NSTextView *)textView willChangeSelectionFromCharacterRange:(NSRange)oldSelectedCharRange toCharacterRange:(NSRange)newSelectedCharRange{
+//    //NSString *selectedString = [textView.string substringWithRange:newSelectedCharRange];
+//    //NSString *string = textView.string;
+//    NSRange newRange = newSelectedCharRange;
+//    NSString *selected = [textView.string substringWithRange:newRange];
+//    NSLog(@"%@",selected);
+//    newRange.location += newRange.length;
+//    newRange.length = textView.string.length - newSelectedCharRange.location;
+//    
+//    //_sTextView.selectedRanges = newRange.length;
+//    //if (newRange.length>0 && newRange.location>0) {
+//    
+////    NSWindow *nWindow =  textView.window;
+////    NSText* textEditor = [nWindow fieldEditor:YES forObject:textView];
+////    [textEditor setSelectedRange:newRange];
+//    
+//    //[textView showFindIndicatorForRange:newRange];
+//    NSLog(@"%lu",(unsigned long)newRange.length);
+//    [textView setTextColor:[NSColor redColor] range:newSelectedCharRange];
+//    return newSelectedCharRange;
+//}
+
+//table view
 - (void)clickDouble{
     NSRange range = _sTextView.rangeForUserTextChange;
     [_sTextView insertText:[htmTags objectAtIndex:_tableView.selectedRow] replacementRange:range];
