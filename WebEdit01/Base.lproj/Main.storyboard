@@ -716,7 +716,7 @@
                                                     <rect key="frame" x="1" y="1" width="331" height="518"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" textReplacement="YES" smartInsertDelete="YES" id="4vH-wk-rx0">
+                                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dataDetection="YES" dashSubstitution="YES" textReplacement="YES" smartInsertDelete="YES" id="4vH-wk-rx0">
                                                             <rect key="frame" x="0.0" y="0.0" width="331" height="518"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -772,13 +772,13 @@
                                 </holdingPriorities>
                             </splitView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTe-QP-2IM">
-                                <rect key="frame" x="20" y="48" width="158" height="520"/>
+                                <rect key="frame" x="20" y="48" width="158" height="480"/>
                                 <clipView key="contentView" id="gQd-Dx-6O9">
-                                    <rect key="frame" x="1" y="0.0" width="156" height="519"/>
+                                    <rect key="frame" x="1" y="0.0" width="156" height="479"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="uVS-j5-9uT" viewBased="YES" id="Odi-HI-zS3">
-                                            <rect key="frame" x="0.0" y="0.0" width="156" height="496"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="456"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -882,6 +882,17 @@
                                                 <action selector="ucitaj:" target="XfG-lQ-9wD" id="KJm-UK-lpH"/>
                                             </connections>
                                         </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pa-a2-drS">
+                                            <rect key="frame" x="503" y="2" width="81" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Select {" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Hae-VV-bbI">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="selectSubstring:" target="XfG-lQ-9wD" id="W0O-rf-Rk9"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="FlK-SX-Rrr" firstAttribute="baseline" secondItem="yKd-0u-mEG" secondAttribute="baseline" id="0s4-EK-xeW"/>
@@ -893,24 +904,41 @@
                                     </constraints>
                                 </view>
                             </box>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8AM-Fq-dEj">
+                                <rect key="frame" x="20" y="546" width="158" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OCD-dO-bYY">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="XfG-lQ-9wD" id="Cy4-k4-iip"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="top" secondItem="8AM-Fq-dEj" secondAttribute="bottom" constant="18" id="1Xv-Q3-r35"/>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="trailing" secondItem="8AM-Fq-dEj" secondAttribute="trailing" id="7mE-hT-5v9"/>
                             <constraint firstAttribute="trailing" secondItem="0K7-ad-98C" secondAttribute="trailing" constant="20" id="EAE-P9-a2X"/>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="60" id="FEq-dF-ZZP"/>
+                            <constraint firstItem="8AM-Fq-dEj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="JHk-iI-Eln"/>
                             <constraint firstItem="0K7-ad-98C" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="193" id="MDn-Ou-WwO"/>
-                            <constraint firstItem="aTe-QP-2IM" firstAttribute="bottom" secondItem="dso-sV-2YR" secondAttribute="bottom" id="RIk-pR-jpV"/>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="OtF-aV-6mH"/>
+                            <constraint firstItem="8AM-Fq-dEj" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Ps0-sr-Zlt"/>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="bottom" secondItem="dso-sV-2YR" secondAttribute="bottom" id="U9e-D0-Y1v"/>
                             <constraint firstItem="0K7-ad-98C" firstAttribute="top" secondItem="dso-sV-2YR" secondAttribute="bottom" constant="6" id="Vbh-dW-bgC"/>
                             <constraint firstItem="0K7-ad-98C" firstAttribute="top" secondItem="DPt-mH-ZMH" secondAttribute="bottom" constant="6" id="WCN-tK-Iny"/>
                             <constraint firstItem="dso-sV-2YR" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="ZGt-hW-JSb"/>
-                            <constraint firstItem="aTe-QP-2IM" firstAttribute="top" secondItem="dso-sV-2YR" secondAttribute="top" id="ZZc-o4-KyM"/>
                             <constraint firstAttribute="trailing" secondItem="dso-sV-2YR" secondAttribute="trailing" constant="20" symbolic="YES" id="egR-UP-i4l"/>
+                            <constraint firstItem="dso-sV-2YR" firstAttribute="leading" secondItem="aTe-QP-2IM" secondAttribute="trailing" constant="15" id="hia-Du-zQO"/>
                             <constraint firstAttribute="bottom" secondItem="0K7-ad-98C" secondAttribute="bottom" id="jBy-va-mM4"/>
                             <constraint firstAttribute="bottom" secondItem="dso-sV-2YR" secondAttribute="bottom" constant="48" id="ote-fj-bIb"/>
-                            <constraint firstItem="dso-sV-2YR" firstAttribute="leading" secondItem="aTe-QP-2IM" secondAttribute="trailing" constant="15" id="rr9-El-g6f"/>
+                            <constraint firstItem="aTe-QP-2IM" firstAttribute="leading" secondItem="8AM-Fq-dEj" secondAttribute="leading" id="qpw-e8-HdE"/>
                             <constraint firstItem="dso-sV-2YR" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="193" id="wBK-Xf-Zeu"/>
-                            <constraint firstItem="aTe-QP-2IM" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="xeZ-PP-dYz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="filterText" destination="8AM-Fq-dEj" id="YUA-2Q-lVp"/>
                         <outlet property="sTextView" destination="4vH-wk-rx0" id="rCz-Ga-Nw5"/>
                         <outlet property="tableView" destination="Odi-HI-zS3" id="LYL-Zd-8wQ"/>
                         <outlet property="textScroll" destination="DPt-mH-ZMH" id="WzI-S6-y0F"/>

@@ -13,37 +13,66 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString *beginString =@"<html>\n<style>\ndiv{\nborder:solid 1px #cccccc;\nbackground-color:white;\nborder-radius:5px;\nbox-shadow: 10px 10px 15px #888888;\npadding:10;}\n</style>\n<body>\n<img src= \nwidth=100%>\n<center>\n<table width=50%>\n<tr><td><div>\na\n</div></td></tr>\n\n</table></center>\n</body>\n</html>";
+    NSString *beginString =@"<html>\n<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />\n<style>\ndiv{\nborder:solid 1px #cccccc;\nbackground-color:white;\nborder-radius:5px;\nbox-shadow: 10px 10px 15px #888888;\npadding:10;}\n</style>\n<body>\n<img src= \nwidth=100%>\n<center>\n<table width=50%>\n<tr><td><div>\na\n</div></td></tr>\n\n</table></center>\n</body>\n</html>";
     htmTags =@[beginString,
-               @"color:red;",
-               @"background-color:orange;",
-               @"border-radius:10px;",
-               @"border:solid 1px;",
-               @"box-shadow: 10px 10px 5px #888888;",
-               @"<xmp>"];
-    htmName =@[@"HTML",
-               @"Font color",
-               @"Background color",
-               @"Radius",
-               @"Border",
-               @"Shadow",
-               @"Code"];
+               @"<link type=text/css rel=stylesheet href=stil.css>", @"color:red;", @"background-color:orange;", @"border-radius:10px;", @"border:solid 1px;", @"box-shadow: 10px 10px 5px #888888;", @"<xmp>", @"script", @"abstract", @"arguments",@"boolean", @"break", @"byte", @"case", @"catch", @"char", @"class", @"const", @"continue", @"debugger", @"default", @"delete", @"do", @"double", @"else", @"enum", @"eval", @"export", @"extends", @"false", @"final", @"finally", @"float", @"for", @"function", @"goto", @"if", @"implements", @"import", @"in", @"instanceof", @"int", @"interface", @"let", @"long", @"native", @"new", @"null", @"package", @"private", @"protected", @"public", @"return", @"short", @"static", @"super", @"switch", @"synchronized", @"this", @"throw", @"throws", @"transient", @"true", @"try", @"typeof", @"var", @"void", @"volatile", @"while", @"with", @"yield", @"Array", @"Date", @"eval", @"function", @"hasOwnProperty", @"Infinity", @"isFinite", @"isNaN", @"isPrototypeOf", @"length", @"Math", @"NaN", @"name", @"Number", @"Object", @"prototype", @"String", @"toString", @"undefined", @"valueOf", @"alert", @"all", @"anchor", @"anchors", @"area", @"assign", @"blur", @"button", @"checkbox", @"clearInterval", @"clearTimeout", @"clientInformation", @"close", @"closed", @"confirm", @"constructor", @"crypto", @"decodeURI", @"decodeURIComponent", @"defaultStatus", @"document", @"element", @"elements", @"embed", @"embeds", @"encodeURI", @"encodeURIComponent", @"escape", @"event", @"fileUpload", @"focus", @"form",	@"forms", @"frame", @"innerHeight", @"innerWidth", @"layer", @"layers", @"link", @"location", @"mimeTypes", @"navigate", @"navigator", @"frames", @"frameRate", @"hidden", @"history", @"image", @"images", @"offscreenBuffering", @"open", @"opener", @"option", @"outerHeight", @"outerWidth", @"packages", @"pageXOffset", @"pageYOffset", @"parent", @"parseFloat", @"parseInt", @"password", @"pkcs11", @"plugin", @"prompt", @"propertyIsEnum", @"radio", @"reset", @"screenX", @"screenY", @"scroll", @"secure", @"select", @"self",	 @"setInterval", @"setTimeout", @"status", @"submit", @"taint", @"text", @"textarea", @"top", @"unescape", @"untaint", @"window", @"onblur", @"onclick", @"onerror", @"onfocus", @"onkeydown", @"onkeypress", @"onkeyup", @"onmouseover", @"onload", @"onmouseup", @"onmousedown", @"onsubmit"];
+    htmName =@[@"HTML", @"ExternalCSS", @"Font color", @"Background color", @"Radius", @"Border", @"Shadow", @"Code", @"script link", @"abstract", @"arguments", @"boolean",
+               @"break", @"byte", @"case", @"catch", @"char", @"class", @"const", @"continue", @"debugger", @"default", @"delete", @"do", @"double",@"else", @"enum", @"eval", @"export", @"extends", @"false", @"final", @"finally", @"float", @"for", @"function", @"goto", @"if", @"implements", @"import", @"in", @"instanceof", @"int", @"interface", @"let", @"long", @"native", @"new", @"null", @"package", @"private", @"protected", @"public", @"return", @"short", @"static", @"super", @"switch",  @"synchronized", @"this", @"throw", @"throws", @"transient", @"true", @"try", @"typeof", @"var", @"void", @"volatile", @"while", @"with", @"yield", @"Array", @"Date", @"eval", @"function", @"hasOwnProperty", @"Infinity", @"isFinite", @"isNaN", @"isPrototypeOf", @"length", @"Math", @"NaN", @"name", @"Number", @"Object", @"prototype", @"String", @"toString", @"undefined", @"valueOf", @"alert", @"all", @"anchor", @"anchors", @"area", @"assign", @"blur", @"button", @"checkbox", @"clearInterval", @"clearTimeout", @"clientInformation", @"close", @"closed", @"confirm", @"constructor", @"crypto", @"decodeURI", @"decodeURIComponent", @"defaultStatus", @"document",	 @"element", @"elements", @"embed", @"embeds", @"encodeURI", @"encodeURIComponent", @"escape", @"event", @"fileUpload", @"focus", @"form", @"forms", @"frame", @"innerHeight", @"innerWidth", @"layer", @"layers", @"link",	 @"location", @"mimeTypes", @"navigate", @"navigator", @"frames", @"frameRate", @"hidden", @"history", @"image", @"images", @"offscreenBuffering", @"open", @"opener", @"option", @"outerHeight", @"outerWidth", @"packages", @"pageXOffset", @"pageYOffset", @"parent", @"parseFloat", @"parseInt", @"password", @"pkcs11", @"plugin", @"prompt", @"propertyIsEnum", @"radio", @"reset", @"screenX", @"screenY", @"scroll", @"secure", @"select", @"self",	 @"setInterval", @"setTimeout", @"status", @"submit",  @"taint", @"text", @"textarea", @"top", @"unescape", @"untaint", @"window", @"onblur", @"onclick", @"onerror", @"onfocus", @"onkeydown", @"onkeypress", @"onkeyup",  @"onmouseover", @"onload", @"onmouseup", @"onmousedown", @"onsubmit"
+               ];
+    sintaxString = @[@"{",@"}"];
     [_sTextView setFont:[NSFont fontWithName:@"Menlo" size:14]];
     [self.tableView setDoubleAction:@selector(clickDouble)];
+    beginWith = [NSArray arrayWithArray:htmTags];
     _sTextView.delegate = self;
+    _filterText.delegate = self;
     
 }
 
-//- (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString{
-//    NSLog(@"change3:%ld",affectedCharRange.location);
-//    NSString *selected = [[textView string] substringWithRange:[textView selectedRange]];
-//    
-//    return YES;
-//}
+- (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString{
+    
+    NSString *selected = [[textView string] substringWithRange:[textView selectedRange]];
+    NSLog(@"change3:%ld %@",affectedCharRange.location,selected);
+    
+    return YES;
+}
+//text field change
+- (void)controlTextDidChange:(NSNotification *)notification {
+    NSTextField *textField = [notification object];
+    NSString *filterString = [textField stringValue];
+    if (filterString.length>0) {
+        void(^filterBlock)(void) = ^{
+            NSPredicate *cPredicate = [NSPredicate predicateWithFormat:@"SELF beginswith[c] %@",filterString];
+            beginWith = [htmTags filteredArrayUsingPredicate:cPredicate];
+            [_tableView reloadData];
+        };
+        filterBlock();
+    } else {
+        beginWith = [NSArray arrayWithArray:htmTags];
+        [_tableView reloadData];
+    }
+    
+    NSLog(@"gkjhg");
+}
 
-//- (void) textDidChange: (NSNotification *) notification {
-//    NSLog(@"change1");
-//}
+- (void) textDidChange: (NSNotification *) notification {
+    NSLog(@"change1");
+    //[self oznaciSubstring];
+    
+}
+- (IBAction)selectSubstring:(id)sender {
+    int length = (int)[_sTextView.string length];
+    for (NSString *string in sintaxString)  {
+        NSRange range = NSMakeRange(0, length);
+        while(range.location != NSNotFound){
+            range = [_sTextView.string rangeOfString: string options:0 range:range];
+            if(range.location != NSNotFound) {
+                [_sTextView setTextColor:[NSColor redColor] range:range];
+                range = NSMakeRange(range.location + range.length, length - (range.location + range.length));
+            }
+        }
+    }
+
+}
 
 //- (void)textViewDidChangeSelection:(NSNotification *)notification{
 //    NSLog(@"change4");
@@ -71,15 +100,14 @@
 //    return newSelectedCharRange;
 //}
 
-//table view
+//table view double click
 - (void)clickDouble{
     NSRange range = _sTextView.rangeForUserTextChange;
-    [_sTextView insertText:[htmTags objectAtIndex:_tableView.selectedRow] replacementRange:range];
+    [_sTextView insertText:[beginWith objectAtIndex:_tableView.selectedRow] replacementRange:range];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
     // Update the view, if already loaded.
 }
 
@@ -159,13 +187,13 @@
                   row:(NSInteger)row {
     
     NSTableCellView *result = [tableView makeViewWithIdentifier:@"MyCell" owner:self];
-    result.textField.stringValue = [htmName objectAtIndex:row];
+    result.textField.stringValue = [beginWith objectAtIndex:row];
     
     // Return the result
     return result;
 }
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return htmName.count;
+    return beginWith.count;
 }
 
 
