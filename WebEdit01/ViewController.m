@@ -13,9 +13,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSString *beginString =@"<html>\n<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />\n<style>\ndiv{\nborder:solid 1px #cccccc;\nbackground-color:white;\nborder-radius:5px;\nbox-shadow: 10px 10px 15px #888888;\npadding:10;}\n</style>\n<body>\n<img src= \nwidth=100%>\n<center>\n<table width=50%>\n<tr><td><div>\na\n</div></td></tr>\n\n</table></center>\n</body>\n</html>";
-    htmTags =@[beginString,
-               @"<link type=text/css rel=stylesheet href=stil.css>", @"color:red;", @"background-color:orange;", @"border-radius:10px;", @"border:solid 1px;", @"box-shadow: 10px 10px 5px #888888;", @"<xmp>", @"script", @"abstract", @"arguments",@"boolean", @"break", @"byte", @"case", @"catch", @"char", @"class", @"const", @"continue", @"debugger", @"default", @"delete", @"do", @"double", @"else", @"enum", @"eval", @"export", @"extends", @"false", @"final", @"finally", @"float", @"for", @"function", @"goto", @"if", @"implements", @"import", @"in", @"instanceof", @"int", @"interface", @"let", @"long", @"native", @"new", @"null", @"package", @"private", @"protected", @"public", @"return", @"short", @"static", @"super", @"switch", @"synchronized", @"this", @"throw", @"throws", @"transient", @"true", @"try", @"typeof", @"var", @"void", @"volatile", @"while", @"with", @"yield", @"Array", @"Date", @"eval", @"function", @"hasOwnProperty", @"Infinity", @"isFinite", @"isNaN", @"isPrototypeOf", @"length", @"Math", @"NaN", @"name", @"Number", @"Object", @"prototype", @"String", @"toString", @"undefined", @"valueOf", @"alert", @"all", @"anchor", @"anchors", @"area", @"assign", @"blur", @"button", @"checkbox", @"clearInterval", @"clearTimeout", @"clientInformation", @"close", @"closed", @"confirm", @"constructor", @"crypto", @"decodeURI", @"decodeURIComponent", @"defaultStatus", @"document", @"element", @"elements", @"embed", @"embeds", @"encodeURI", @"encodeURIComponent", @"escape", @"event", @"fileUpload", @"focus", @"form",	@"forms", @"frame", @"innerHeight", @"innerWidth", @"layer", @"layers", @"link", @"location", @"mimeTypes", @"navigate", @"navigator", @"frames", @"frameRate", @"hidden", @"history", @"image", @"images", @"offscreenBuffering", @"open", @"opener", @"option", @"outerHeight", @"outerWidth", @"packages", @"pageXOffset", @"pageYOffset", @"parent", @"parseFloat", @"parseInt", @"password", @"pkcs11", @"plugin", @"prompt", @"propertyIsEnum", @"radio", @"reset", @"screenX", @"screenY", @"scroll", @"secure", @"select", @"self",	 @"setInterval", @"setTimeout", @"status", @"submit", @"taint", @"text", @"textarea", @"top", @"unescape", @"untaint", @"window", @"onblur", @"onclick", @"onerror", @"onfocus", @"onkeydown", @"onkeypress", @"onkeyup", @"onmouseover", @"onload", @"onmouseup", @"onmousedown", @"onsubmit"];
+    beginString =@"<html>\n<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />\n<style>\ndiv{\nborder:solid 1px #cccccc;\nbackground-color:white;\nborder-radius:5px;\nbox-shadow: 10px 10px 15px #888888;\npadding:10;}\n</style>\n<body>\n<img src= \nwidth=100%>\n<center>\n<table width=50%>\n<tr><td><div>\na\n</div></td></tr>\n\n</table></center>\n</body>\n</html>";
+    htmTags =@[@"<link type=text/css rel=stylesheet href=stil.css>",@"<script src='myscripts.js'></script>", @"color:red;", @"background-color:orange;",
+               @"border-radius:10px;", @"border:solid 1px;", @"box-shadow: 10px 10px 5px #888888;", @"<xmp>", @"<script>",@"<table>",@"<td>",@"<tr>",@"<div>",
+               @"<svg width='100' height='100' id='svg' style='position:absolute;left:10; top:10;'>",
+               @"<rect x=10 y=10 width=100 height=150 style='stroke:#000; fill:brown'/>",
+               @"<circle id='circ' cx='60' cy='60' r='40' stroke='orange' stroke-width='4' fill='white'/>",
+               @"<canvas id='can' width='500' height='500' style='border:1px solid #000000;'> </canvas>",
+               @"ctx=can.getContext('2d')",@"ctx.lineWidth = 0.5",@"ctx.moveTo(xc,yc)",@"ctx.lineTo(x,y)",@"ctx.stroke()",
+               @"event.clientX",@"event.clientY",
+               @"function",@"document.getElementById()",@"style.transform = 'rotate('+kut+'deg)'",@"style.transformOrigin = '50% 0%'",
+               @"t=new Date()",@"t.getSeconds()",@"t.getMinutes()",@"t.getHours()",@"setInterval"];
     htmName =@[@"HTML", @"ExternalCSS", @"Font color", @"Background color", @"Radius", @"Border", @"Shadow", @"Code", @"script link", @"abstract", @"arguments", @"boolean",
                @"break", @"byte", @"case", @"catch", @"char", @"class", @"const", @"continue", @"debugger", @"default", @"delete", @"do", @"double",@"else", @"enum", @"eval", @"export", @"extends", @"false", @"final", @"finally", @"float", @"for", @"function", @"goto", @"if", @"implements", @"import", @"in", @"instanceof", @"int", @"interface", @"let", @"long", @"native", @"new", @"null", @"package", @"private", @"protected", @"public", @"return", @"short", @"static", @"super", @"switch",  @"synchronized", @"this", @"throw", @"throws", @"transient", @"true", @"try", @"typeof", @"var", @"void", @"volatile", @"while", @"with", @"yield", @"Array", @"Date", @"eval", @"function", @"hasOwnProperty", @"Infinity", @"isFinite", @"isNaN", @"isPrototypeOf", @"length", @"Math", @"NaN", @"name", @"Number", @"Object", @"prototype", @"String", @"toString", @"undefined", @"valueOf", @"alert", @"all", @"anchor", @"anchors", @"area", @"assign", @"blur", @"button", @"checkbox", @"clearInterval", @"clearTimeout", @"clientInformation", @"close", @"closed", @"confirm", @"constructor", @"crypto", @"decodeURI", @"decodeURIComponent", @"defaultStatus", @"document",	 @"element", @"elements", @"embed", @"embeds", @"encodeURI", @"encodeURIComponent", @"escape", @"event", @"fileUpload", @"focus", @"form", @"forms", @"frame", @"innerHeight", @"innerWidth", @"layer", @"layers", @"link",	 @"location", @"mimeTypes", @"navigate", @"navigator", @"frames", @"frameRate", @"hidden", @"history", @"image", @"images", @"offscreenBuffering", @"open", @"opener", @"option", @"outerHeight", @"outerWidth", @"packages", @"pageXOffset", @"pageYOffset", @"parent", @"parseFloat", @"parseInt", @"password", @"pkcs11", @"plugin", @"prompt", @"propertyIsEnum", @"radio", @"reset", @"screenX", @"screenY", @"scroll", @"secure", @"select", @"self",	 @"setInterval", @"setTimeout", @"status", @"submit",  @"taint", @"text", @"textarea", @"top", @"unescape", @"untaint", @"window", @"onblur", @"onclick", @"onerror", @"onfocus", @"onkeydown", @"onkeypress", @"onkeyup",  @"onmouseover", @"onload", @"onmouseup", @"onmousedown", @"onsubmit"
                ];
@@ -26,6 +34,11 @@
     _sTextView.delegate = self;
     _filterText.delegate = self;
     
+}
+- (IBAction)resetStyle:(id)sender {
+    [_sTextView setFont:[NSFont fontWithName:@"Menlo" size:14]];
+    [_sTextView setTextColor:[NSColor blackColor]];
+    [_sTextView setBackgroundColor:[NSColor whiteColor]];
 }
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString{
@@ -169,6 +182,10 @@
 - (IBAction)ucitajFromText:(id)sender {
     NSString *str = _sTextView.string;
     [[_webView mainFrame] loadHTMLString:str baseURL:nil];
+}
+- (IBAction)insertHtml:(id)sender {
+    NSRange range = _sTextView.rangeForUserTextChange;
+    [_sTextView insertText:beginString replacementRange:range];
 }
 
 - (IBAction)insertDivStyle:(id)sender {

@@ -17,6 +17,7 @@
     NSArray *htmName;
     NSArray *sintaxString;
     NSArray *beginWith;
+    NSString *beginString;
 }
 @property (weak) IBOutlet NSScrollView *textScroll;
 @property (unsafe_unretained) IBOutlet NSTextView *sTextView;
